@@ -29,8 +29,8 @@ public class login extends AppCompatActivity {
                 MODE_PRIVATE);
         final boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
 
-        final String required_email= sharedPreferences.getString("EMAIL","DEFAULT_EMAIL");
-        final String required_password= sharedPreferences.getString("PASSWORD","DEFAULT_PASSWORD");
+        final String required_email = sharedPreferences.getString("EMAIL","DEFAULT_EMAIL");
+        final String required_password = sharedPreferences.getString("PASSWORD","DEFAULT_PASSWORD");
 
         // check if user is logged in & redirect user to the main page
 
@@ -43,7 +43,7 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // get text from the EditText
-                String email= email_field.getText().toString();
+                String email = email_field.getText().toString();
                 String password= password_field.getText().toString();
 
                 /*
@@ -57,22 +57,18 @@ public class login extends AppCompatActivity {
                     Intent main = new Intent(login.this, MainActivity.class);
                     startActivity(main);
                 } else {
-                    Toast.makeText(
-                            login.this,
-                            "User Not found So we decided to register you directly with this credential ",
-                            Toast.LENGTH_LONG).show();
-
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("EMAIL", email);
-                    editor.putString("PASSWORD", password);
-                    editor.putBoolean("isLoggedIn",true);
-                    editor.apply();
-                    Intent main = new Intent(login.this, MainActivity.class);
-                    startActivity(main);
-
+                    Toast.makeText(login.this,"Email address or password is incorrect",Toast.LENGTH_LONG).show();
                 }
 
 
+            }
+        });
+
+        regTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent main = new Intent(login.this, register.class);
+                startActivity(main);
             }
         });
     }
