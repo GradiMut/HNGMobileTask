@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Intent login;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
         final SharedPreferences sharedPreferences = getSharedPreferences("USER_CREDENTIALS", MODE_PRIVATE);
 
         Button logout = findViewById(R.id.log_out);
+        final String name=sharedPreferences.getString("NAME","DEFAULT_NAME");
+
+        TextView welcomeText = findViewById(R.id.welcom_tv);
+        welcomeText.setText("Welcome " + name);
 
 
         // Log out current user
@@ -27,27 +29,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sharedPreferences.edit().putBoolean("isLoggedIn",false).apply();
-                startActivity(login);
+                Intent i = new Intent(MainActivity.this, login.class);
+                startActivity(i);
                 finish();
             }
         });
     }
 
-
-    /*
-     * Whe application activity start, check if user is logged in
-     * */
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        final SharedPreferences sharedPreferences = getSharedPreferences(
-                "USER_CREDENTIALS",
-                MODE_PRIVATE);
-        final boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
-
-        Intent main = new Intent(MainActivity.this, login.class);
-        startActivity(main);
-    }
 }

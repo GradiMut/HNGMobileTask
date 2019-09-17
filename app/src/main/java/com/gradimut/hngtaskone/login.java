@@ -49,7 +49,7 @@ public class login extends AppCompatActivity {
                 /*
                 * Check if user input exist (on sharedPreference)
                 * if true, send user to the mainActivity
-                * else add user to the sharedPreference
+                * else toast
                 * */
 
                 if (email.equals(required_email) && password.equals(required_password)) {
