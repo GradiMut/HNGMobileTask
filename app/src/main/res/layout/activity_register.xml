@@ -142,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:text="@string/login"
-                    android:id="@+id/log"
+                        android:id="@+id/log"
                     android:textColor="@color/green"
                     android:clickable="true"
                     android:focusable="true" />
