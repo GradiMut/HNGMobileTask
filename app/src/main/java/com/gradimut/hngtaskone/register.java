@@ -41,7 +41,7 @@ public class register extends AppCompatActivity {
                     editor.putString("NAME",name);
                     editor.putString("EMAIL",email_id);
                     editor.putString("PASSWORD",password_1);
-                    editor.putBoolean("ISLOGGEDIN",true);
+                    editor.putBoolean("isLoggedIn",true);
                     editor.apply();
 
                     // Start a new activity
@@ -50,6 +50,15 @@ public class register extends AppCompatActivity {
                 } else {
                     Toast.makeText(register.this,"Passwords don't match", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent main = new Intent(register.this, login.class);
+                startActivity(main);
+                finish();
             }
         });
     }

@@ -34,10 +34,10 @@ public class login extends AppCompatActivity {
 
         // check if user is logged in & redirect user to the main page
 
-        if (isLoggedIn) {
-            Intent main = new Intent(login.this, MainActivity.class);
-            startActivity(main);
-        }
+//        if (isLoggedIn) {
+//            Intent main = new Intent(login.this, MainActivity.class);
+//            startActivity(main);
+//        }
 
         logBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +46,7 @@ public class login extends AppCompatActivity {
                 String email = email_field.getText().toString();
                 String password= password_field.getText().toString();
 
+
                 /*
                 * Check if user input exist (on sharedPreference)
                 * if true, send user to the mainActivity
@@ -53,12 +54,12 @@ public class login extends AppCompatActivity {
                 * */
 
                 if (email.equals(required_email) && password.equals(required_password)) {
-                    sharedPreferences.edit().putBoolean("isLoggedIn", false).apply();
                     Intent main = new Intent(login.this, MainActivity.class);
                     startActivity(main);
                 } else {
-                    Toast.makeText(login.this,"Email address or password is incorrect",Toast.LENGTH_LONG).show();
+                    Toast.makeText(login.this,"You don't have an account",Toast.LENGTH_LONG).show();
                 }
+
 
 
             }
