@@ -21,13 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
         Button logout = findViewById(R.id.log_out);
         final String name = sharedPreferences.getString("NAME","DEFAULT_NAME");
+        final String email = sharedPreferences.getString("EMAIL","DEFAULT_EMAIL");
 
 
         TextView welcomeText = findViewById(R.id.welcom_tv);
+        TextView mail = findViewById(R.id.mail);
         if (name.equals("")) {
             welcomeText.setText("Welcome, Please click on ");
         } else {
             welcomeText.setText("Welcome " + name);
+            mail.setText("Your Email : " + email);
         }
 
 

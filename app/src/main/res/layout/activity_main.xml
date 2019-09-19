@@ -10,16 +10,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:textSize="50sp"
+        android:textSize="28sp"
         android:id="@+id/welcom_tv"
         android:layout_centerInParent="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:id="@+id/mail"
+        android:layout_below="@+id/welcom_tv"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="50dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/log_out"
         android:id="@+id/log_out"
-        android:layout_below="@+id/welcom_tv"
+        android:layout_below="@+id/mail"
         android:layout_centerHorizontal="true"
         android:background="@color/green"
         android:textColor="@color/white"/>
